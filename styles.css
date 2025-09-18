@@ -7,32 +7,29 @@
 }
 
 body {
-  background: #f0f4f8;
+  background: #fff;
   color: #333;
 }
 
 header {
-  background-color: #4a90e2;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-header h1 {
-  display: inline-block;
-  margin-left: 10px;
-  font-size: 2rem;
-  vertical-align: middle;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  z-index: 1000;
 }
 
 header img {
   height: 50px;
-  vertical-align: middle;
 }
 
 main {
-  padding: 40px 20px;
+  padding: 100px 20px 40px; /* horní padding kvůli fixovanému headeru */
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -40,27 +37,29 @@ main {
 main h2 {
   margin-bottom: 20px;
   text-align: center;
+  font-weight: 600;
+  font-size: 1.8rem;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
+  gap: 15px;
 }
 
 .card {
-  background: white;
+  background: #f8f8f8;
   padding: 20px;
-  border-radius: 12px;
   text-align: center;
   cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-radius: 0; /* žádné zaoblení */
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .card img {
@@ -71,15 +70,13 @@ main h2 {
 .card span {
   display: block;
   font-weight: bold;
-  font-size: 1.1rem;
-  margin-top: 5px;
-  color: #4a90e2;
+  font-size: 1rem;
+  color: #222;
 }
 
 footer {
   text-align: center;
   padding: 20px;
   color: #777;
-  margin-top: 40px;
   font-size: 0.9rem;
 }
