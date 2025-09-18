@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyHub</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="StudyHub Logo">
+    <h1>StudyHub</h1>
+  </header>
+
+  <main>
+    <h2>Vyber předmět</h2>
+    <div class="grid">
+      <div class="card" onclick="openSubject('Matematika')">
+        <img src="icons/math.png" alt="Matematika">
+        <span>Matematika</span>
+      </div>
+      <div class="card" onclick="openSubject('Fyzika')">
+        <img src="icons/physics.png" alt="Fyzika">
+        <span>Fyzika</span>
+      </div>
+      <div class="card" onclick="openSubject('Angličtina')">
+        <img src="icons/english.png" alt="Angličtina">
+        <span>Angličtina</span>
+      </div>
+      <div class="card" onclick="openSubject('Chemie')">
+        <img src="icons/chemistry.png" alt="Chemie">
+        <span>Chemie</span>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 StudyHub | Všechna práva vyhrazena
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
