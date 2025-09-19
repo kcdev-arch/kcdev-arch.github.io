@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="subject-title">Předmět</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* basic styles for post list */
+    .post {
+      border-bottom: 1px solid #eee;
+      padding: 15px 0;
+    }
+    .post-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #0069b4;
+    }
+    .attachments a {
+      display: inline-block;
+      margin-right: 10px;
+      color: #333;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .attachments a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="StudyHub Logo">
+  </header>
+
+  <main>
+    <h2 id="subject-heading"></h2>
+    <div id="posts-container">
+      </div>
+  </main>
+
+  <footer>
+    &copy; 2025 StudyHub
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+  <script src="firebase-config.js"></script>
+  <script>
+    // Get the subject from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const subjectName = urlParams.get('subject');
+
+    // Display the subject name
+    document.getElementById('subject-title').textContent = subjectName;
+    document.getElementById('subject-heading').textContent = subjectName;
+
+    const postsContainer = document.getElementById('posts-container');
+
+    // Fetch posts from Firestore
+    db.collection("posts")
+      .where("category", "==", subjectName)
+      .get()
+      .then((querySnapshot) => {
+        if (querySnapshot.empty) {
+          postsContainer.innerHTML = "<p>Žádné příspěvky v tomto předmětu.</p>";
+          return;
+        }
+        querySnapshot.forEach((doc) => {
+          const postData = doc.data();
+          const postDiv = document.createElement('div');
+          postDiv.className = 'post';
+
+          let attachmentsHtml = '';
+          if (postData.attachments && postData.attachments.length > 0) {
+            attachmentsHtml = '<div class="attachments">';
+            postData.attachments.forEach(attachment => {
+              attachmentsHtml += `<a href="${attachment}" target="_blank">${attachment.split('/').pop()}</a>`;
+            });
+            attachmentsHtml += '</div>';
+          }
+
+          postDiv.innerHTML = `
+            <div class="post-title">${postData.title}</div>
+            ${attachmentsHtml}
+          `;
+          postsContainer.appendChild(postDiv);
+        });
+      })
+      .catch((error) => {
+        console.error("Error getting documents: ", error);
+        postsContainer.innerHTML = "<p>Chyba při načítání dat.</p>";
+      });
+  </script>
+</body>
+</html>

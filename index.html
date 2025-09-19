@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>StudyHub</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="script.js"></script>
 </head>
 <body>
 
@@ -13,23 +17,19 @@
   </header>
 
   <main>
-    <h2>Vyber předmět</h2>
+    <h2>Předměty</h2>
     <div class="grid">
       <div class="card" onclick="openSubject('Matematika')">
         <img src="icons/math.png" alt="Matematika">
-        <span>Matematika</span>
       </div>
       <div class="card" onclick="openSubject('Fyzika')">
         <img src="icons/physics.png" alt="Fyzika">
-        <span>Fyzika</span>
       </div>
       <div class="card" onclick="openSubject('Angličtina')">
         <img src="icons/english.png" alt="Angličtina">
-        <span>Angličtina</span>
       </div>
       <div class="card" onclick="openSubject('Chemie')">
         <img src="icons/chemistry.png" alt="Chemie">
-        <span>Chemie</span>
       </div>
     </div>
   </main>
