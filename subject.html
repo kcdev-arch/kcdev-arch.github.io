@@ -37,7 +37,7 @@
   <main>
     <h2 id="subject-heading"></h2>
     <div id="posts-container">
-      </div>
+    </div>
   </main>
 
   <footer>
@@ -46,19 +46,22 @@
 
   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+
   <script src="firebase-config.js"></script>
+
   <script>
-    // Get the subject from the URL
+    // Získání názvu předmětu z URL
     const urlParams = new URLSearchParams(window.location.search);
     const subjectName = urlParams.get('subject');
 
-    // Display the subject name
+    // Zobrazení názvu předmětu na stránce
     document.getElementById('subject-title').textContent = subjectName;
     document.getElementById('subject-heading').textContent = subjectName;
 
     const postsContainer = document.getElementById('posts-container');
 
-    // Fetch posts from Firestore
+    // Načtení příspěvků z Firestore
+    // db proměnná je globálně definovaná v upraveném firebase-config.js
     db.collection("posts")
       .where("category", "==", subjectName)
       .get()
@@ -76,7 +79,9 @@
           if (postData.attachments && postData.attachments.length > 0) {
             attachmentsHtml = '<div class="attachments">';
             postData.attachments.forEach(attachment => {
-              attachmentsHtml += `<a href="${attachment}" target="_blank">${attachment.split('/').pop()}</a>`;
+              // Získání názvu souboru z cesty
+              const fileName = attachment.substring(attachment.lastIndexOf('/') + 1);
+              attachmentsHtml += `<a href="${attachment}" target="_blank">${fileName}</a>`;
             });
             attachmentsHtml += '</div>';
           }
