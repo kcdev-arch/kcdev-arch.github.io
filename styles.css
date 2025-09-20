@@ -21,6 +21,7 @@ header {
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
+  justify-content: space-between; /* Add this line to push items apart */
   z-index: 1000;
 }
 
@@ -31,6 +32,11 @@ header img {
 header img.key-icon {
   height: 30px;
   margin-left: auto;
+}
+
+.key-icon {
+  align-items: right;
+  justify-content: right;
 }
 
 main {
