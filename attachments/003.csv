@@ -1,0 +1,9 @@
+Dělitelnost 2;Číslo je dělitelné dvěma, pokud je sudé
+Dělitelnost 3;Číslo je dělitelné třemi, pokud je jeho ciferný součet dělitelný třemi
+Dělitelnost 4;Číslo je dělitelné čtyřmi, pokud je jeho poslední dvojčíslí dělitelné čtyřmi
+Dělitelnost 5;Číslo je dělitelné pěti, pokud končí na číslici 0 nebo 5
+Dělitelnost 6;Číslo je dělitelné šesti, pokud je současně dělitelné dvěma a třemi
+Dělitelnost 8;Číslo je dělitelné osmi, pokud je jeho poslední trojčíslí dělitelné osmi
+Dělitelnost 9;Číslo je dělitelné devíti, pokud je jeho ciferný součet dělitelný devíti
+Dělitelnost 10;Číslo je dělitelné deseti, pokud končí na číslici 0
+Dělitelnost 11;Číslo je dělitelné jedenácti, když je rozdíl součtu cifer na lichých a sudých pozicích dělitelný jedenácti
