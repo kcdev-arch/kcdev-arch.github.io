@@ -62,10 +62,10 @@ logoutBtn.addEventListener('click', () => {
 function addAttachmentField() {
     const attachmentDiv = document.createElement('div');
     attachmentDiv.innerHTML = `
-    <label>URL přílohy (GitHub):</label>
-    <input type="url" class="attachment-url" required>
+    <label>Cesta k příloze:</label>
+    <input type="text" class="attachment-url" required>
     <br>
-    <label>Název souboru:</label>
+    <label>Název přílohy:</label>
     <input type="text" class="attachment-name" required>
     <br><br>
     `;
