@@ -28,6 +28,11 @@ header img {
   height: 50px;
 }
 
+header img.key-icon {
+  height: 30px;
+  margin-left: auto;
+}
+
 main {
   padding: 100px 20px 40px; /* horní padding kvůli fixovanému headeru */
   max-width: 1000px;
