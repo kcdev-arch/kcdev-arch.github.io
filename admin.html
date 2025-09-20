@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - StudyHub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <a href="https://kcdev-arch.github.io"><img src="logo.png" alt="StudyHub Logo"></a>
+    </header>
+
+    <main>
+        <h2>Admin</h2>
+        <div id="login-section">
+            <p>Pro přidání příspěvku se prosím přihlaste.</p>
+            <button id="google-login-btn">Přihlásit se přes Google</button>
+            <div id="login-error-message"></div>
+        </div>
+
+        <div id="admin-section" style="display: none;">
+            <p>Jste přihlášen jako <strong id="user-email"></strong>. <button id="logout-btn">Odhlásit se</button></p>
+            <h3>Přidat nový příspěvek</h3>
+            <form id="add-post-form">
+                <label for="category">Předmět:</label>
+                <select id="category" name="category" required>
+                    <option value="Matematika">Matematika</option>
+                    <option value="Angličtina">Angličtina</option>
+                    <option value="Dějepis">Dějepis</option>
+                </select>
+                <br>
+                <label for="title">Název:</label>
+                <input type="text" id="title" name="title" required>
+                <br>
+                <label for="attachment-url">URL přílohy (GitHub):</label>
+                <input type="url" id="attachment-url" name="attachment-url" required>
+                <br>
+                <label for="attachment-name">Název souboru:</label>
+                <input type="text" id="attachment-name" name="attachment-name" required>
+                <br>
+                <button type="submit">Přidat příspěvek</button>
+            </form>
+            <div id="status-message"></div>
+        </div>
+    </main>
+
+    <footer>
+        v1.1 | &copy; 2025 StudyHub
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

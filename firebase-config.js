@@ -9,8 +9,7 @@ const firebaseConfig = {
   measurementId: "G-9BBZZS59YR"
 };
 
-// Initialize Firebase with the global syntax
 firebase.initializeApp(firebaseConfig);
 
-// Get a reference to the Firestore service
 const db = firebase.firestore();
+const auth = firebase.auth(); // Přidání reference pro autentizaci
