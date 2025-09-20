@@ -59,9 +59,10 @@
 
     const postsContainer = document.getElementById('posts-container');
 
-    // Načtení příspěvků z Firestore
+    // Načtení a seřazení příspěvků z Firestore
     db.collection("posts")
       .where("category", "==", subjectName)
+      .orderBy("timestamp", "desc") // Přidáno řazení podle času sestupně
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.empty) {
