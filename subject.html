@@ -81,7 +81,7 @@
             attachmentsHtml = '<div class="attachments">';
             postData.attachments.forEach((attachment, index) => {
               const fileName = postData.attachment_names ? postData.attachment_names[index] : attachment.substring(attachment.lastIndexOf('/') + 1);
-              attachmentsHtml += `<a href="${attachment}" target="_blank">${fileName}</a>`;
+              attachmentsHtml += `<a href="${attachment}" target="_blank">${fileName}</a><br>`;
             });
             attachmentsHtml += '</div>';
           }
