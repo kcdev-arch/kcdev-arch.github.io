@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="subject-title">Předmět</title>
+  <title>Nejnovější příspěvky</title>
   <link rel="stylesheet" href="styles.css">
   <style>
     /* basic styles for post list */
@@ -35,7 +35,7 @@
   </header>
 
   <main>
-    <h2 id="subject-heading"></h2>
+    <h2 id="page-heading">Nejnovější</h2>
     <div id="posts-container">
     </div>
   </main>
@@ -49,23 +49,15 @@
   <script src="firebase-config.js"></script>
 
   <script>
-    // Získání názvu předmětu z URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const subjectName = urlParams.get('subject');
-
-    // Zobrazení názvu předmětu na stránce
-    document.getElementById('subject-title').textContent = subjectName;
-    document.getElementById('subject-heading').textContent = subjectName;
-
     const postsContainer = document.getElementById('posts-container');
 
-    // Načtení příspěvků z Firestore
+    // Načtení příspěvků z Firestore, seřazení podle času sestupně
     db.collection("posts")
-      .where("category", "==", subjectName)
+      .orderBy("timestamp", "desc")
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.empty) {
-          postsContainer.innerHTML = "<p>Žádné příspěvky v tomto předmětu.</p>";
+          postsContainer.innerHTML = "<p>Žádné příspěvky nebyly nalezeny.</p>";
           return;
         }
         querySnapshot.forEach((doc) => {
@@ -84,7 +76,7 @@
           }
 
           postDiv.innerHTML = `
-            <div class="post-title">${postData.title}</div>
+            <div class="post-title">${postData.category} - ${postData.title}</div>
             ${attachmentsHtml}
           `;
           postsContainer.appendChild(postDiv);
