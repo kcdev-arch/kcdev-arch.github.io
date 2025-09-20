@@ -9,7 +9,7 @@ const statusMessageDiv = document.getElementById('status-message');
 
 // Seznam povolených e-mailových adres
 const allowedEmails = [
-    "karelcerny404@gmail.com" // SEM VLOŽTE SVŮJ GMAIL ÚČET
+    "karelcerny404@seznam.cz" // SEM VLOŽTE SVŮJ GMAIL ÚČET
 ];
 
 const provider = new firebase.auth.GoogleAuthProvider();
