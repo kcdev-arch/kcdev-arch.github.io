@@ -81,6 +81,7 @@ addAttachmentBtn.addEventListener('click', addAttachmentField);
 // Událost pro odeslání formuláře
 addPostForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    statusMessageDiv.textContent = "Přidávám příspěvek...";
 
     const category = document.getElementById('category').value;
     const title = document.getElementById('title').value;
@@ -88,7 +89,7 @@ addPostForm.addEventListener('submit', async (e) => {
     const attachmentUrls = [];
     const attachmentNames = [];
 
-    // Získání všech URL a názvů souborů
+    // Získání všech cest a názvů souborů
     document.querySelectorAll('.attachment-url').forEach(input => {
         if (input.value) {
             attachmentUrls.push(input.value);
@@ -100,9 +101,9 @@ addPostForm.addEventListener('submit', async (e) => {
         }
     });
 
-    // Kontrola, zda jsou pole pro URL a názvy stejně dlouhé
+    // Kontrola, zda jsou pole pro cesty a názvy stejně dlouhé
     if (attachmentUrls.length !== attachmentNames.length) {
-        statusMessageDiv.textContent = "Chyba: Počet URL a názvů příloh se neshoduje.";
+        statusMessageDiv.textContent = "Chyba: Počet cest a názvů příloh se neshoduje.";
         return;
     }
 
@@ -113,7 +114,22 @@ addPostForm.addEventListener('submit', async (e) => {
     }
 
     try {
-        await db.collection("posts").add({
+        // Krok 1: Najdi poslední dokument
+        const lastPostSnapshot = await db.collection("posts")
+        .orderBy(firebase.firestore.FieldPath.documentId(), "desc")
+        .limit(1)
+        .get();
+
+        let newId = 1;
+        if (!lastPostSnapshot.empty) {
+            const lastId = parseInt(lastPostSnapshot.docs[0].id, 10);
+            newId = lastId + 1;
+        }
+
+        // Krok 2: Přidání nového dokumentu s vlastním ID (např. "001", "002")
+        const formattedId = String(newId).padStart(3, '0');
+
+        await db.collection("posts").doc(formattedId).set({
             category: category,
             title: title,
             attachments: attachmentUrls,
@@ -121,7 +137,7 @@ addPostForm.addEventListener('submit', async (e) => {
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
 
-        statusMessageDiv.textContent = "Příspěvek úspěšně přidán!";
+        statusMessageDiv.textContent = `Příspěvek ${formattedId} úspěšně přidán!`;
         addPostForm.reset();
         attachmentsContainer.innerHTML = ''; // Vyčistí formulář
         addAttachmentField(); // Přidá první pole pro novou přílohu
