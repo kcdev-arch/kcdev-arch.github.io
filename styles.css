@@ -1,13 +1,16 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
   background: #fff;
   color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -39,9 +42,10 @@ header img.key-icon {
 }
 
 main {
-  padding: 100px 20px 40px; /* horní padding kvůli fixovanému headeru */
+  padding: 100px 20px 40px;
   max-width: 1000px;
   margin: 0 auto;
+  flex-grow: 1;
 }
 
 main h2 {
@@ -62,7 +66,7 @@ main h2 {
   padding: 20px;
   text-align: center;
   cursor: pointer;
-  border-radius: 0; /* žádné zaoblení */
+  border-radius: 0;
   color: white;
 }
 
@@ -79,8 +83,18 @@ main h2 {
 }
 
 footer {
-  text-align: center;
+  text-align: center; /* Výchozí zarovnání pro starší prohlížeče */
   padding: 20px;
   color: #777;
   font-size: 0.9rem;
+  background-color: #f5f5f5;
+  margin-top: auto;
+  display: flex; /* Použití Flexboxu pro rozložení */
+  justify-content: space-between; /* Rozmístění prvků na krajích */
+  align-items: center; /* Zarovnání prvků vertikálně na střed */
+  padding-bottom: 30px;
+}
+
+footer .copyright {
+  margin: 0 auto; /* Centrování copyright textu ve Flexboxu */
 }
