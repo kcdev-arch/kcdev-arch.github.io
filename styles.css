@@ -43,7 +43,7 @@ header img.key-icon {
 
 main {
   padding: 100px 20px 40px;
-  max-width: 1000px;
+  width: 75%; /* Zvětšeno pro širší sloupec obsahu */
   margin: 0 auto;
   flex-grow: 1;
 }
@@ -55,6 +55,7 @@ main h2 {
   font-size: 1.8rem;
 }
 
+/* Vráceno na responzivní mřížku */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -83,18 +84,33 @@ main h2 {
 }
 
 footer {
-  text-align: center; /* Výchozí zarovnání pro starší prohlížeče */
+  text-align: center;
   padding: 20px;
   color: #777;
   font-size: 0.9rem;
   background-color: #f5f5f5;
   margin-top: auto;
-  display: flex; /* Použití Flexboxu pro rozložení */
-  justify-content: space-between; /* Rozmístění prvků na krajích */
-  align-items: center; /* Zarovnání prvků vertikálně na střed */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding-bottom: 30px;
 }
 
 footer .copyright {
-  margin: 0 auto; /* Centrování copyright textu ve Flexboxu */
+  margin: 0 auto;
+}
+
+/* Styly pro admin sekci */
+#add-post-form label,
+#add-post-form input,
+#add-post-form select {
+display: block;
+width: 100%;
+margin-bottom: 15px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
 }
