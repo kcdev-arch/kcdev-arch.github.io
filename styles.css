@@ -20,7 +20,7 @@ header {
   width: 100%;
   background-color: #fff;
   padding: 10px 20px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -31,19 +31,15 @@ header img {
   height: 50px;
 }
 
-header img.key-icon {
+.key-icon {
   height: 30px;
   margin-left: auto;
 }
 
-.key-icon {
-  align-items: right;
-  justify-content: right;
-}
-
 main {
   padding: 100px 20px 40px;
-  width: 75%; /* Zvětšeno pro širší sloupec obsahu */
+  width: 75%;
+  max-width: 960px;
   margin: 0 auto;
   flex-grow: 1;
 }
@@ -55,7 +51,6 @@ main h2 {
   font-size: 1.8rem;
 }
 
-/* Vráceno na responzivní mřížku */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -96,11 +91,10 @@ footer {
   padding-bottom: 30px;
 }
 
-footer .copyright {
+.copyright {
   margin: 0 auto;
 }
 
-/* Styly pro admin sekci */
 #add-post-form label,
 #add-post-form input,
 #add-post-form select {
@@ -113,4 +107,199 @@ margin-bottom: 15px;
   display: flex;
   gap: 10px;
   margin-top: 15px;
+}
+
+#admin-section,
+#login-section {
+background: #fff;
+padding: 30px;
+border-radius: 8px;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+margin-top: 30px;
+max-width: 500px;
+margin-left: auto;
+margin-right: auto;
+}
+
+#login-section p {
+margin-bottom: 15px;
+text-align: center;
+}
+
+#logout-btn,
+#add-post-form button {
+display: block;
+width: 100%;
+padding: 12px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 1rem;
+font-weight: bold;
+transition: background-color 0.2s;
+}
+
+#add-post-form button[type="submit"] {
+background-color: #0069b4;
+color: white;
+margin-top: 20px;
+}
+
+#add-post-form button[type="submit"]:hover {
+background-color: #005a9c;
+}
+
+#logout-btn {
+background-color: #dc3545;
+color: white;
+margin-top: 10px;
+}
+
+#logout-btn:hover {
+background-color: #c82333;
+}
+
+#add-attachment-btn {
+background-color: #6c757d;
+color: white;
+margin-top: 10px;
+}
+
+#add-attachment-btn:hover {
+background-color: #5a6268;
+}
+
+#add-post-form label {
+display: block;
+margin-bottom: 8px;
+font-weight: bold;
+}
+
+#add-post-form input[type="text"],
+#add-post-form select {
+width: 100%;
+padding: 10px;
+margin-bottom: 15px;
+border: 1px solid #ced4da;
+border-radius: 5px;
+}
+
+#attachments-container div {
+margin-bottom: 10px;
+}
+
+#login-error-message,
+#status-message {
+margin-top: 15px;
+text-align: center;
+font-weight: bold;
+}
+
+.gsi-material-button {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-appearance: none;
+  background-color: WHITE;
+  background-image: none;
+  border: 1px solid #747775;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #1f1f1f;
+  cursor: pointer;
+  font-family: 'Roboto', arial, sans-serif;
+  font-size: 14px;
+  height: 40px;
+  letter-spacing: 0.25px;
+  outline: none;
+  overflow: hidden;
+  padding: 0 12px;
+  position: relative;
+  text-align: center;
+  -webkit-transition: background-color .218s, border-color .218s, box-shadow .218s;
+  transition: background-color .218s, border-color .218s, box-shadow .218s;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 100%;
+  min-width: min-content;
+}
+
+.gsi-material-button .gsi-material-button-icon {
+  height: 20px;
+  margin-right: 12px;
+  min-width: 20px;
+  width: 20px;
+}
+
+.gsi-material-button .gsi-material-button-content-wrapper {
+  -webkit-align-items: center;
+  align-items: center;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  height: 100%;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.gsi-material-button .gsi-material-button-contents {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  font-family: 'Roboto', arial, sans-serif;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
+
+.gsi-material-button .gsi-material-button-state {
+  -webkit-transition: opacity .218s;
+  transition: opacity .218s;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.gsi-material-button:disabled {
+  cursor: default;
+  background-color: #ffffff61;
+  border-color: #1f1f1f1f;
+}
+
+.gsi-material-button:disabled .gsi-material-button-contents {
+  opacity: 38%;
+}
+
+.gsi-material-button:disabled .gsi-material-button-icon {
+  opacity: 38%;
+}
+
+.gsi-material-button:not(:disabled):active .gsi-material-button-state,
+.gsi-material-button:not(:disabled):focus .gsi-material-button-state {
+  background-color: #303030;
+  opacity: 12%;
+}
+
+.gsi-material-button:not(:disabled):hover {
+  -webkit-box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+}
+
+.gsi-material-button:not(:disabled):hover .gsi-material-button-state {
+  background-color: #303030;
+  opacity: 8%;
+}
+
+@media (max-width: 768px) {
+  main {
+    width: 90%;
+  }
 }
