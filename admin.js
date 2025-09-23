@@ -63,7 +63,7 @@ logoutBtn.addEventListener('click', () => {
 function addAttachmentField() {
     const attachmentDiv = document.createElement('div');
     attachmentDiv.innerHTML = `
-    <label>Cesta k příloze:</label>
+    <label>URL přílohy:</label>
     <input type="text" class="attachment-url" required>
     <br>
     <label>Název přílohy:</label>
