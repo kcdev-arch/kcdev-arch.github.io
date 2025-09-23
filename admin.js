@@ -11,7 +11,8 @@ const attachmentsContainer = document.getElementById('attachments-container');
 
 // Seznam povolených e-mailových adres
 const allowedEmails = [
-    "karelcerny404@seznam.cz"
+    "karelcerny404@seznam.cz",
+    "pyskenzi@gmail.com
 ];
 
 const provider = new firebase.auth.GoogleAuthProvider();
