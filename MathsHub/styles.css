@@ -62,9 +62,15 @@ main h2 {
     color: white;
 }
 
-.card p {
-    font-size: 1.2rem;
+.card-sh {
+    background: #0069b4;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0;
+    color: white;
 }
+
 
 footer {
     text-align: center;
