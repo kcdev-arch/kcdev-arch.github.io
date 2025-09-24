@@ -11,8 +11,7 @@ const attachmentsContainer = document.getElementById('attachments-container');
 
 // Seznam povolených e-mailových adres
 const allowedEmails = [
-    "karelcerny404@seznam.cz",
-    "pyskenzi@gmail.com"
+    "karelcerny404@seznam.cz"
 ];
 
 const provider = new firebase.auth.GoogleAuthProvider();
@@ -63,7 +62,7 @@ logoutBtn.addEventListener('click', () => {
 function addAttachmentField() {
     const attachmentDiv = document.createElement('div');
     attachmentDiv.innerHTML = `
-    <label>URL přílohy:</label>
+    <label>Cesta k příloze:</label>
     <input type="text" class="attachment-url" required>
     <br>
     <label>Název přílohy:</label>
