@@ -142,6 +142,12 @@ font-weight: bold;
 margin-top: 15px;
 }
 
+@media (max-width: 768px) {
+    main {
+        width: 90%;
+    }
+}
+
 main hr {
     border: none;
     border-top: 1px solid #ccc;
