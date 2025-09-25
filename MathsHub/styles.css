@@ -85,6 +85,10 @@ footer {
     padding-bottom: 30px;
 }
 
+footer a {
+    color: #777;
+}
+
 .copyright {
     margin: 0 auto;
 }
